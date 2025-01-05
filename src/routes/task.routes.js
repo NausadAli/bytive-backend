@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
           return res.status(400).json({ error: 'Title and Description both are required.' });
       }
       const newTask = new Task({ title, description });
-      await newTask.save();
+      await newTask.save(); //save into the DB
       res.status(201).json(newTask);
   } catch (error) {
       console.error('Error creating task:', error);

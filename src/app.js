@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
-// Connect to MongoDB
+// Connect to MongoDB using better Try-catch
 (async () => {
    try {
      await mongoose.connect(process.env.MONGO_URI, {
@@ -22,8 +22,8 @@ app.use(express.json());
  })();
 
  // Routes
-app.use('/api/tasks', taskRoutes);
-app.use('/api/health', healthRoutes);
+app.use('/api/tasks', taskRoutes);  //all the task route
+app.use('/api/health', healthRoutes);     //for health check of the api
 
 
 // Start the server
